@@ -4,20 +4,22 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user,\
     current_user
 from oauth import OAuthSignIn
 
+from os import environ
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-app.config['OAUTH_CREDENTIALS'] = {
-    'facebook': {
-        'id': '183941125409842',
-        'secret': 'da4d00dfd9021b019759fb5925c95f21'
-    },
-    'twitter': {
-        'id': '3RzWQclolxWZIMq5LJqzRZPTl',
-        'secret': 'm9TEd58DSEtRrZHpz2EjrV9AhsBRxKMo8m3kuIZj3zLwzwIimt'
-    }
-}
+app.config['OAUTH_CREDENTIALS'] = environ.get('OAUTH_CREDENTIALS')# {
+#     'facebook': {
+#         'id': '183941125409842',
+#         'secret': 'da4d00dfd9021b019759fb5925c95f21'
+#     },
+#     'twitter': {
+#         'id': '3RzWQclolxWZIMq5LJqzRZPTl',
+#         'secret': 'm9TEd58DSEtRrZHpz2EjrV9AhsBRxKMo8m3kuIZj3zLwzwIimt'
+#     }
+# }
 
 
 db = SQLAlchemy(app)
