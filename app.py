@@ -10,14 +10,15 @@ app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
     'facebook': {
-        'id': '238392349927343',
-        'secret': 'fb23159c117080db3c46fffddf0c409f'
+        'id': '183941125409842',
+        'secret': 'da4d00dfd9021b019759fb5925c95f21'
     },
     'twitter': {
         'id': '3RzWQclolxWZIMq5LJqzRZPTl',
         'secret': 'm9TEd58DSEtRrZHpz2EjrV9AhsBRxKMo8m3kuIZj3zLwzwIimt'
     }
 }
+
 
 db = SQLAlchemy(app)
 lm = LoginManager(app)
